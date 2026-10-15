@@ -20,3 +20,6 @@ kubectl create secret generic kps-grafana -n monitoring `
 ## Also needed
 - PostgreSQL credentials for the Keycloak database (postgres-postgresql release)
 - Ingress TLS secrets referenced by `secretName` in the ingress manifests
+
+## Helm values and node configs
+Set your own values for: kps adminPassword (helm-values/kps.yaml), postgres password and postgresPassword (helm-values/postgres.yaml), keepalived auth_pass (node-configs/keepalived.conf). Placeholders are CHANGE_ME / CHANGEME.

@@ -1,0 +1,3 @@
+# release: kps, namespace: monitoring
+grafana:
+  adminPassword: CHANGE_ME

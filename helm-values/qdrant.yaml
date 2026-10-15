@@ -1,0 +1,15 @@
+# release: qdrant, namespace: llmaas
+persistence:
+  size: 2Gi
+replicaCount: 1
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+tolerations:
+- effect: NoSchedule
+  key: node-role.kubernetes.io/control-plane
+  operator: Exists

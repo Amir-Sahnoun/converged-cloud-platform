@@ -65,7 +65,7 @@ observability, and an AI extension layer.
 
 ```
 converged-cloud-platform/
-├── ansible/            OS preparation and kubeadm bootstrap playbooks
+├── node-configs/       keepalived, HAProxy and kubeadm configuration
 ├── manifests/
 │   ├── kubevirt/       KubeVirt operator and CR
 │   ├── longhorn/       Storage classes
@@ -152,7 +152,7 @@ Lab sizing used for validation: 3 Ubuntu 22.04.5 LTS VMs (4/2/2 vCPU, 4 GB RAM e
 and an Ollama host with enough RAM for a 7B model.
 
 1. Configure static IPs and SSH access on all nodes
-2. Run the playbooks in `ansible/` (OS preparation, kubeadm prerequisites)
+2. Prepare the OS (static IPs, containerd, kubeadm prerequisites); reference configs are in `node-configs/`
 3. Deploy keepalived + HAProxy for the control-plane VIP
 4. `kubeadm init` on node-01, then join node-02 and node-03
 5. Apply manifests in this order:

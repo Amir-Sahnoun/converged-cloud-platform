@@ -1,0 +1,6 @@
+# release: ingress-nginx, namespace: ingress-nginx
+controller:
+  admissionWebhooks:
+    enabled: true
+  service:
+    type: LoadBalancer

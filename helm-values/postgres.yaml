@@ -1,0 +1,9 @@
+# release: postgres, namespace: keycloak
+auth:
+  database: keycloak
+  password: CHANGE_ME
+  postgresPassword: CHANGE_ME
+  username: keycloak
+global:
+  security:
+    allowInsecureImages: true
