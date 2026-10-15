@@ -1,0 +1,25 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: default
+    namespace: llmaas
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: qdrant
+      meta.helm.sh/release-namespace: llmaas
+    labels:
+      app: qdrant
+      app.kubernetes.io/instance: qdrant
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: qdrant
+      app.kubernetes.io/version: v1.18.2
+      helm.sh/chart: qdrant-1.18.2
+    name: qdrant
+    namespace: llmaas
+kind: List
+metadata:
+

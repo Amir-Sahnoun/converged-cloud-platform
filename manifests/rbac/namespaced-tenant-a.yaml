@@ -1,0 +1,82 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+    name: rag-ingestor-reader
+    namespace: tenant-a
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    - pods/log
+    - events
+    verbs:
+    - get
+    - list
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    name: tenant-a-viewer
+    namespace: tenant-a
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    - services
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - apps
+    resources:
+    - deployments
+    verbs:
+    - get
+    - list
+    - watch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+    name: rag-ingestor-reader-binding
+    namespace: tenant-a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: rag-ingestor-reader
+  subjects:
+  - kind: ServiceAccount
+    name: rag-ingestor
+    namespace: tenant-a
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    name: tenant-a-viewer
+    namespace: tenant-a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: tenant-a-viewer
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: tenant-a-viewer
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: default
+    namespace: tenant-a
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    annotations:
+    name: rag-ingestor
+    namespace: tenant-a
+kind: List
+metadata:
+

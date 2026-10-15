@@ -1,0 +1,26 @@
+# Secrets and credentials
+*.kubeconfig
+admin.conf
+*.env
+.env*
+secrets/
+*secret*.yaml
+*secret*.yml
+
+# Kubeconfig
+~/.kube/config
+kubeconfig*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# VM disk images
+*.vmdk
+*.vmx
+*.vdi

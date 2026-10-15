@@ -1,0 +1,50 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: aiops-agent
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: aiops-agent
+  subjects:
+  - kind: ServiceAccount
+    name: aiops-agent
+    namespace: aiops
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: platform-admins
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: platform-admins
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: my-headlamp
+      meta.helm.sh/release-namespace: kube-system
+    labels:
+      app.kubernetes.io/instance: my-headlamp
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: headlamp
+      app.kubernetes.io/version: 0.41.0
+      helm.sh/chart: headlamp-0.41.0
+    name: my-headlamp-admin
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: my-headlamp
+    namespace: kube-system
+kind: List
+metadata:
+
