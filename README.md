@@ -1,12 +1,9 @@
-# Converged Cloud Platform — PFE Orange Tunisie
+# Converged Cloud Platform
 
 An open-source private cloud **proof of concept** built on a 3-node Kubernetes cluster,
 validated as an alternative to the VMware ecosystem: virtual machines (KubeVirt) and
 containers run side by side on one platform, with multi-tenancy, SDN, distributed storage,
 observability, and an AI extension layer.
-
-Final-year engineering project (PFE) — Cloud & DevOps Engineering, Esprit — carried out at
-**Orange Tunisie** (B2B Cloud & Infrastructure), 2025/2026.
 
 > **Scope note:** this was validated in a VMware Workstation lab (nested virtualization,
 > no GPU, single physical host). Results demonstrate technical viability, not production
@@ -189,5 +186,3 @@ reference Kubernetes Secrets via `secretKeyRef`. You must create those Secrets y
 deploying (see `docs/secrets-required.md`). No kubeconfigs, tokens, or private keys are committed.
 
 ---
-
-*Cloud & DevOps Engineering — Esprit · Final year project at Orange Tunisie — 2026*
